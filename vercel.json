@@ -1,6 +1,6 @@
 {
   "buildCommand": "bun run build",
-  "outputDirectory": "dist",
+  "outputDirectory": ".output",
   "framework": null,
   "devCommand": "bun run dev",
   "installCommand": "bun install",
