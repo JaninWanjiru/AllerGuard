@@ -1,0 +1,250 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * AllerGuard Design System — "Nordic Technical"
+ * Palette: #e63946 coral · #f1faee powder · #a8dadc teal · #457b9d steel · #1d3557 ink
+ * All colors in oklch. Semantic tokens for both light + dark.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  /* Brand semantic tokens */
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-steel: var(--steel);
+  --color-teal: var(--teal);
+  --color-powder: var(--powder);
+  --color-coral: var(--coral);
+  --color-alert: var(--alert);
+  --color-alert-foreground: var(--alert-foreground);
+  --color-safe: var(--safe);
+  --color-safe-foreground: var(--safe-foreground);
+  --color-hazard: var(--hazard);
+  --color-hazard-foreground: var(--hazard-foreground);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* Brand palette (oklch equivalents) */
+  --coral: oklch(0.628 0.221 25.5);          /* #e63946 */
+  --powder: oklch(0.984 0.011 145);           /* #f1faee */
+  --teal: oklch(0.852 0.054 195);             /* #a8dadc */
+  --steel: oklch(0.532 0.082 235);            /* #457b9d */
+  --ink: oklch(0.297 0.072 256);              /* #1d3557 */
+
+  /* Surfaces */
+  --background: oklch(0.992 0.005 145);
+  --foreground: var(--ink);
+  --surface: oklch(0.978 0.008 200);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+
+  --primary: var(--ink);
+  --primary-foreground: var(--powder);
+  --secondary: oklch(0.945 0.025 200);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.955 0.012 220);
+  --muted-foreground: oklch(0.48 0.04 245);
+  --accent: var(--teal);
+  --accent-foreground: var(--ink);
+
+  --destructive: var(--coral);
+  --destructive-foreground: var(--powder);
+
+  --alert: var(--coral);
+  --alert-foreground: var(--powder);
+  --safe: oklch(0.68 0.14 160);
+  --safe-foreground: oklch(0.18 0.04 160);
+  --hazard: oklch(0.55 0.24 28);
+  --hazard-foreground: var(--powder);
+
+  --border: oklch(0.9 0.018 220);
+  --input: oklch(0.93 0.015 220);
+  --ring: var(--steel);
+
+  --chart-1: var(--coral);
+  --chart-2: var(--steel);
+  --chart-3: var(--teal);
+  --chart-4: var(--ink);
+  --chart-5: oklch(0.7 0.15 80);
+
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--powder);
+  --sidebar-accent: var(--teal);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: oklch(0.9 0.018 220);
+  --sidebar-ring: var(--steel);
+
+  /* Shadows */
+  --shadow-steel: 0 20px 50px -20px color-mix(in oklab, var(--steel) 45%, transparent);
+  --shadow-coral: 0 20px 50px -20px color-mix(in oklab, var(--coral) 50%, transparent);
+  --shadow-soft: 0 10px 30px -12px color-mix(in oklab, var(--ink) 18%, transparent);
+}
+
+.dark {
+  --background: oklch(0.18 0.035 256);
+  --foreground: oklch(0.96 0.012 145);
+  --surface: oklch(0.225 0.04 256);
+  --card: oklch(0.235 0.045 256);
+  --card-foreground: oklch(0.96 0.012 145);
+  --popover: oklch(0.235 0.045 256);
+  --popover-foreground: oklch(0.96 0.012 145);
+
+  --primary: var(--teal);
+  --primary-foreground: var(--ink);
+  --secondary: oklch(0.295 0.05 256);
+  --secondary-foreground: oklch(0.96 0.012 145);
+  --muted: oklch(0.28 0.04 256);
+  --muted-foreground: oklch(0.72 0.04 220);
+  --accent: oklch(0.42 0.08 235);
+  --accent-foreground: oklch(0.96 0.012 145);
+
+  --destructive: var(--coral);
+  --destructive-foreground: var(--powder);
+
+  --alert: var(--coral);
+  --alert-foreground: var(--powder);
+  --safe: oklch(0.74 0.16 160);
+  --safe-foreground: oklch(0.16 0.04 160);
+  --hazard: oklch(0.62 0.25 28);
+  --hazard-foreground: var(--powder);
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: var(--teal);
+
+  --sidebar: oklch(0.225 0.04 256);
+  --sidebar-foreground: oklch(0.96 0.012 145);
+  --sidebar-primary: var(--teal);
+  --sidebar-primary-foreground: var(--ink);
+  --sidebar-accent: oklch(0.295 0.05 256);
+  --sidebar-accent-foreground: oklch(0.96 0.012 145);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: var(--teal);
+
+  --shadow-steel: 0 20px 60px -20px color-mix(in oklab, var(--teal) 35%, transparent);
+  --shadow-coral: 0 20px 60px -20px color-mix(in oklab, var(--coral) 55%, transparent);
+  --shadow-soft: 0 10px 30px -12px oklch(0 0 0 / 60%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html,
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--teal) 60%, transparent);
+    color: var(--ink);
+  }
+}
+
+/* Gradient utilities */
+@utility bg-gradient-brand {
+  background-image: linear-gradient(135deg, var(--steel), var(--ink));
+}
+@utility bg-gradient-coral {
+  background-image: linear-gradient(135deg, var(--coral), color-mix(in oklab, var(--coral) 70%, var(--ink)));
+}
+@utility bg-gradient-soft {
+  background-image: linear-gradient(180deg, var(--powder), var(--surface));
+}
+@utility bg-gradient-aurora {
+  background-image:
+    radial-gradient(60% 60% at 20% 10%, color-mix(in oklab, var(--teal) 55%, transparent), transparent 60%),
+    radial-gradient(50% 50% at 80% 0%, color-mix(in oklab, var(--steel) 45%, transparent), transparent 60%),
+    radial-gradient(70% 60% at 60% 100%, color-mix(in oklab, var(--coral) 25%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--background), var(--background));
+}
+@utility shadow-steel {
+  box-shadow: var(--shadow-steel);
+}
+@utility shadow-coral {
+  box-shadow: var(--shadow-coral);
+}
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+@utility glass {
+  background-color: color-mix(in oklab, var(--card) 70%, transparent);
+  backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+}
+
+/* Animations */
+@keyframes scanline {
+  0% { transform: translateY(-100%); opacity: 0.2; }
+  50% { opacity: 0.9; }
+  100% { transform: translateY(100%); opacity: 0.2; }
+}
+@utility animate-scanline {
+  animation: scanline 2.4s ease-in-out infinite;
+}
+@keyframes aurora-shift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(2%, -1%, 0) rotate(2deg); }
+}
+@utility animate-aurora {
+  animation: aurora-shift 16s ease-in-out infinite;
+}

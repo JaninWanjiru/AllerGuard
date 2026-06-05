@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAppContext } from '../context/AppProvider';
-import { ALLERGEN_DICTIONARY, AllergenCategory } from '../utils/allergenDictionary';
+import { ALLERGEN_DICTIONARY, type AllergenCategory } from '../utils/allergenDictionary';
 import { Check, Plus, X, Shield } from 'lucide-react';
 
 export const ProfileView: React.FC = () => {

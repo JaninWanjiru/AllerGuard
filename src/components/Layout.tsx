@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Camera, List, Clock, ShieldAlert } from 'lucide-react';
 
 interface LayoutProps {

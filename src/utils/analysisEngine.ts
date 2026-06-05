@@ -1,4 +1,4 @@
-import { ALLERGEN_DICTIONARY, AllergenCategory, PRIDE_TOXICITY_KEYWORDS } from './allergenDictionary';
+import { ALLERGEN_DICTIONARY, type AllergenCategory, PRIDE_TOXICITY_KEYWORDS } from './allergenDictionary';
 
 export interface AnalysisResult {
   verdict: 'SAFE' | 'WARNING' | 'CRITICAL';

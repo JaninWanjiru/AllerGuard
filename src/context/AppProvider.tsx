@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { AllergenCategory } from '../utils/allergenDictionary';
+import React, { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import type { AllergenCategory } from '../utils/allergenDictionary';
 
 export interface ScanHistoryItem {
   id: string;
