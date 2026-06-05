@@ -1,7 +1,0 @@
-{
-  "buildCommand": "bun run build",
-  "framework": null,
-  "devCommand": "bun run dev",
-  "installCommand": "bun install",
-  "regions": ["iad1"]
-}
