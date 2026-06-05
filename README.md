@@ -1,73 +1,87 @@
-# React + TypeScript + Vite
+# AllerGuard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Your pocket food safety companion — scan ingredient labels against your personal allergen profile and flag regional hazards instantly, on-device.
 
-Currently, two official plugins are available:
+![AllerGuard Homepage](./docs/homepage.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Instant Label Scanning**: Use your camera to scan food product labels and extract ingredients using OCR technology
+- **Personal Allergen Profiles**: Build custom allergen profiles to track what matters to you
+- **Regional Hazard Detection**: Automatically flags regional hazards like aflatoxin, mould, and improperly dried maize
+- **Real-time Analysis**: Get instant verdicts (SAFE, WARNING, or CRITICAL) with highlighted allergen matches
+- **Scan History**: Track and review your previous scans
+- **Cross-contamination Alerts**: Detects "may contain" warnings and manufacturing facility information
+- **Dark/Light Mode**: Beautiful theming with OKLCH color palette
+- **Privacy-First**: All processing happens on-device with k-anonymity compliance
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: TanStack Start (React SSR framework)
+- **UI**: React 19 + TypeScript
+- **Styling**: TailwindCSS 4 with custom design system
+- **Components**: Radix UI primitives + shadcn/ui
+- **OCR**: Tesseract.js for text extraction
+- **State Management**: Zustand
+- **Routing**: TanStack Router
+- **Forms**: React Hook Form + Zod validation
+- **Animations**: Framer Motion
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js 18+
+- Bun or npm
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+```bash
+# Install dependencies
+bun install
+
+# Start development server
+bun dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The application will be available at `http://localhost:3000`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Build for Production
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+bun build
 ```
+
+## Usage
+
+1. **Build Your Profile**: Navigate to the Profile section to set up your allergen preferences
+2. **Scan Labels**: Use the Scan feature to capture food product labels
+3. **View Results**: Get instant analysis with highlighted allergens and hazard warnings
+4. **Track History**: Review your scan history in the History section
+
+## Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── ui/             # shadcn/ui components
+│   └── ...             # Feature components
+├── lib/                # Utility libraries
+│   ├── scan-engine.ts  # Allergen detection logic
+│   └── ocr.ts          # OCR service
+├── routes/             # TanStack Router routes
+├── store/              # Zustand state management
+└── styles.css          # Global styles and design system
+```
+
+## Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+VITE_N8N_WEBHOOK_URL=your_webhook_url
+```
+
+## License
+
+MIT
